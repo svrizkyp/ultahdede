@@ -24,7 +24,7 @@
 	</style>
   
    <!-- Ganti Audio di sini -->
-   <audio src="hbd.mp3" id="linkmp3" class="sembunyi" controls loop></audio>
+   <audio src="hbd.mp3" id="linkmp3" class="sembunyi" controls></audio>
    
    <div id="bodyblur">
      <!-- Wallpaper --><img src="https://feeldreams.github.io/wp9.jpg" id="wallpaper"/><div id="beneranblur"></div>
@@ -82,7 +82,7 @@
      <div id="Tombol"><a id="By">&#128140; Lanjut</a></div>
 
      <!-- Pesan Tambahan -->
-     <p id="katatambahan" class="sembunyi">Gajadi deh soalnya dede bau wleee 😜</p>
+     <p id="katatambahan" class="sembunyi">Gajadi deh soalnya dede nob wleee 😜</p>
      
      <!-- Pesan Ditolak -->
      <div id="pesanditolak">
@@ -97,6 +97,11 @@
   
   document.getElementById("kadoIn").onclick = function() {if(fungsiAwal==0){audio.play();fungsiAwal=1;kadoIn.style="transition:all .8s ease;transform:scale(10);opacity:0";wallpaper.style="transform: scale(1.5);";ket.style="display:none";setTimeout(initengahan,300);setTimeout(inipesan,500)}}
   
+  audio.addEventListener('ended', function() {
+  	this.currentTime = 0;
+  	this.play();
+  }, false);
+
   async function inipesan(){
     var nama = "Dede";
        if(nama && nama.length < 11){
